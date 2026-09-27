@@ -8,11 +8,9 @@
         <version>4.1.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ru.aston.notification.service</groupId>
+    <groupId>ru.aston</groupId>
     <artifactId>notification-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>notification-service</name>
-    <description>notification-service</description>
     <url/>
     <licenses>
         <license/>
@@ -45,6 +43,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
         </dependency>
 
         <dependency>
