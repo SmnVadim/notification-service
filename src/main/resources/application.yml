@@ -1,0 +1,48 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: notification-service
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-server-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "ru.aston.notification.service.dto,ru.aston.user.service.event"
+        spring.json.value.default.type: ru.aston.notification.service.dto.UserEvent
+        spring.json.use.type.headers: false
+    listener:
+      ack-mode: record
+
+  mail:
+    host: localhost
+    port: 1025
+    username: ""
+    password: ""
+    properties:
+      mail:
+        smtp:
+          auth: false
+          starttls:
+            enable: false
+
+app:
+  kafka:
+    topic:
+      user-events: user-events
+  mail:
+    from: noreply@user-service.local
+    subject:
+      created: "Your account has been successfully created"
+      deleted: "Your account has been deleted"
+
+logging:
+  level:
+    root: info
+    ru.aston.notification: debug
+    org.apache.kafka: warn
