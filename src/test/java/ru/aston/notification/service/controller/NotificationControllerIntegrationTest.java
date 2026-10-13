@@ -2,6 +2,7 @@ package ru.aston.notification.service.controller;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.mail.MailMessage;
 import ru.aston.notification.service.support.AbstractIntegrationTest;
 
 import java.util.UUID;
@@ -32,7 +33,7 @@ class NotificationControllerIntegrationTest extends AbstractIntegrationTest {
         MailMessage message = awaitMessageTo(recipient);
         assertThat(message.from()).isEqualTo("noreply@user-service.local");
         assertThat(message.subject()).isEqualTo("Your account has been successfully created");
-        assertThat(message.body()).contains("Здравствуйте! Ваш аккаунт на сайте был успешно создан!");
+        assertThat(message.body()).contains("Здравствуйте! Ваш аккаунт на сайте ваш сайт был успешно создан!");
     }
 
     @Test

@@ -5,6 +5,9 @@ spring:
   application:
     name: notification-service
 
+  config:
+    import: optional:configserver:http://localhost:8888
+
   kafka:
     bootstrap-servers: localhost:9092
     consumer:
@@ -30,6 +33,9 @@ spring:
           auth: false
           starttls:
             enable: false
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
 
 app:
   kafka:

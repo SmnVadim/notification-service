@@ -24,7 +24,7 @@ public class EmailService {
     @Value("${app.mail.subject.deleted}")
     private String subjectDeleted;
 
-    private static final String BODY_CREATED = "Здравствуйте! Ваш аккаунт на сайте был успешно создан!";
+    private static final String BODY_CREATED = "Здравствуйте! Ваш аккаунт на сайте ваш сайт был успешно создан!";
     private static final String BODY_DELETED = "Здравствуйте! Ваш аккаунт был удалён!";
 
     public void sendEmail(String email, Operation operation) {
@@ -57,8 +57,8 @@ public class EmailService {
 
     private String resolveBody(Operation operation) {
         return switch (operation) {
-            case CREATE -> subjectCreated;
-            case DELETE -> subjectDeleted;
+            case CREATE -> BODY_CREATED;
+            case DELETE -> BODY_DELETED;
         };
     }
 }

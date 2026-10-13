@@ -2,6 +2,7 @@ package ru.aston.notification.service.kafka;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.springframework.mail.MailMessage;
 import ru.aston.notification.service.dto.UserEvent.Operation;
 import ru.aston.notification.service.support.AbstractIntegrationTest;
 
@@ -22,7 +23,7 @@ class UserEventConsumerIntegrationTest extends AbstractIntegrationTest {
         assertThat(message.to()).isEqualTo(recipient);
         assertThat(message.from()).isEqualTo("noreply@user-service.local");
         assertThat(message.subject()).isEqualTo("Your account has been successfully created");
-        assertThat(message.body()).contains("Здравствуйте! Ваш аккаунт на сайте был успешно создан!");
+        assertThat(message.body()).contains("Здравствуйте! Ваш аккаунт на сайте ваш сайт был успешно создан!");
     }
 
     @Test
